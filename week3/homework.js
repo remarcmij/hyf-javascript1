@@ -128,6 +128,7 @@ console.log('STEP 8');
 
 console.log('STEP 9');
 {
+  // see also: https://www.grammarly.com/blog/comma-before-and/
   const vehicles = ['motorbike', 'caravan', 'bike', 'car'];
 
   function vehicle(color, code, age) {
