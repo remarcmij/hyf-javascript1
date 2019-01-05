@@ -1,19 +1,29 @@
 'use strict';
 
+/* 
+Notes: 
+
+1. Each exercise is placed in a separate code block (using { }) to
+create a local block scope. This allows function and variable names
+to be reused across exercises without causing conflicts.
+
+2. I replaced some let's from the assignment to const's.
+*/
+
 console.log('*** STRING AND ARRAY CHALLENGES ***');
 
 console.log('STEP 1');
 {
-  let myString = 'hello,this,is,a,difficult,to,read,sentence';
+  const myString = 'hello,this,is,a,difficult,to,read,sentence';
   console.log('Difficult to read: ' + myString);
   console.log(myString.length);
-  let easyToRead = myString.replace(/,/g, ' ');
+  const easyToRead = myString.replace(/,/g, ' ');
   console.log('Easy to read: ' + easyToRead);
 }
 
 console.log('STEP 2');
 {
-  let favoriteAnimals = ['blowfish', 'capricorn', 'giraffe'];
+  const favoriteAnimals = ['blowfish', 'capricorn', 'giraffe'];
   favoriteAnimals.push('turtle');
   console.log('I added `turtle` to the array: ' + favoriteAnimals);
   favoriteAnimals.splice(1, 0, 'meerkat');
@@ -22,7 +32,7 @@ console.log('STEP 2');
   console.log('The array has a length of:', favoriteAnimals.length);
   favoriteAnimals.splice(3, 1);
   console.log('I removed `giraffe`: ' + favoriteAnimals);
-  let index = favoriteAnimals.indexOf('meerkat');
+  const index = favoriteAnimals.indexOf('meerkat');
   console.log('The item you are looking for is at index: ' + index);
 }
 
@@ -60,7 +70,7 @@ console.log('STEP 3');
   const person = {
     firstName: 'Maartje',
     lastName: 'Kruijt',
-    city: 'Amsterdam'
+    city: 'Amsterdam',
   };
 
   printObject(person);
@@ -128,7 +138,6 @@ console.log('STEP 8');
 
 console.log('STEP 9');
 {
-  // see also: https://www.grammarly.com/blog/comma-before-and/
   const vehicles = ['motorbike', 'caravan', 'bike', 'car'];
 
   function vehicle(color, code, age) {
@@ -161,7 +170,7 @@ console.log('STEP 10');
       text += name + 's';
     }
     text += ' and ' + vehicleNames[vehicleNames.length - 1] + 's.';
-    return 'Amazing Joe\'s Garage, we service ' + text;
+    return "Amazing Joe's Garage, we service " + text;
   }
 
   const vehicles = ['motorbike', 'caravan', 'bike', 'car'];
@@ -182,7 +191,7 @@ console.log('STEP 11');
       text += name + 's';
     }
     text += ' and ' + vehicleNames[vehicleNames.length - 1] + 's.';
-    return 'Amazing Joe\'s Garage, we service ' + text;
+    return "Amazing Joe's Garage, we service " + text;
   }
 
   const vehicles = ['motorbike', 'caravan', 'bike', 'car', 'tractor'];
@@ -199,43 +208,44 @@ console.log('STEP 12');
 
 console.log('STEP 13');
 {
-  const teachers = [
-    {
+  const teachers = {
+    philip: {
       firstName: 'Philip',
       lastName: 'Beau',
     },
-    {
+    unmesh: {
       firstName: 'Unmesh',
       lastName: 'Joshi',
     },
-    {
+    jim: {
       firstName: 'Jim',
       lastName: 'Cramer',
-    }
-  ];
+    },
+  };
 
   console.log('Teachers:', teachers);
 }
 
 console.log('STEP 14');
 {
-  const teachers = [
-    {
+  const teachers = {
+    philip: {
       firstName: 'Philip',
       lastName: 'Beau',
-      languages: ['HTML', 'CSS']
     },
-    {
+    unmesh: {
       firstName: 'Unmesh',
       lastName: 'Joshi',
-      languages: ['Git']
     },
-    {
+    jim: {
       firstName: 'Jim',
       lastName: 'Cramer',
-      languages: ['JavaScript']
-    }
-  ];
+    },
+  };
+
+  teachers.philip.languages = ['HTML', 'CSS'];
+  teachers.unmesh.languages = ['Git', 'CLI'];
+  teachers.jim.languages = ['JavaScript'];
 
   console.log('Teachers and languages:', teachers);
 }
@@ -247,7 +257,9 @@ console.log('STEP 15');
   const z = y;
 
   console.log('x and y are like twin brothers: they look the same but are different instances');
-  console.log('z is just another name for the array assigned to y: they reference the same instance');
+  console.log(
+    'z is just another name for the array assigned to y: they reference the same instance'
+  );
 
   console.log('x == y', x == y);
   console.log('x === y', x === y);
@@ -262,7 +274,9 @@ console.log('STEP 16');
   const o3 = o2;
 
   console.log('o1 and o2 are like twin brothers: they look the same but are different instances');
-  console.log('03is just another name for the object assigned to o2 they reference the same instance');
+  console.log(
+    '03is just another name for the object assigned to o2 they reference the same instance'
+  );
 
   console.log('o1', o1, 'o2', o2, 'o3', o3);
 
@@ -277,7 +291,7 @@ console.log('STEP 16');
 
 console.log('STEP 17');
 {
-  let bar = 42;
+  const bar = 42;
   const result = typeof typeof bar;
   console.log('the typeof operator returns the type of an expression as a string:', result);
 }
